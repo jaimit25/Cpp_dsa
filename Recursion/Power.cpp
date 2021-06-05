@@ -28,7 +28,19 @@ int power2(int m, int n){
     }
 }
 
+int loop(int m,int n){
+int k=1;
+for(int i =1; i<=n;i++){
+k = k*m;
+}
+return k;
+}
+
 int main(){
-cout<<power(2,9)<<endl;
-cout<<power2(2,9)<<endl;
+cout<<"Enter the number m and value of n : "<<endl;
+int m,n;
+cin>>m>>n;
+cout<<power(m,n)<<endl;
+cout<<power2(m,n)<<endl;
+cout<<loop(m,n)<<endl;
 }
