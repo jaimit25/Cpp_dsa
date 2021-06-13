@@ -19,22 +19,20 @@ int main()
     }
     cout << "****************************************************************" << endl;
 
-
     int *B[3];
     B[0] = (int *)malloc(4 * sizeof(int));
     B[1] = (int *)malloc(4 * sizeof(int));
     B[2] = (int *)malloc(4 * sizeof(int));
     //2D Array in Heap with pointer array in stack
 
-        
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 4; j++)
         {
-           B[i][j] =i+j;
+            B[i][j] = i + j;
         }
     }
-   
+
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 4; j++)
@@ -52,9 +50,11 @@ int main()
     C[0] = (int *)malloc(4 * sizeof(int));
     C[1] = (int *)malloc(4 * sizeof(int));
     C[2] = (int *)malloc(4 * sizeof(int));
-    for(int i =0 ; i<3;i++){
-        for (int j =0 ;j<4;j++){
-            C[i][j]=i+j;
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 4; j++)
+        {
+            C[i][j] = i + j;
         }
     }
     //printing The Array Elements
