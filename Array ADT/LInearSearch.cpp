@@ -1,5 +1,7 @@
-#include <iostream>
-using namespace std; //
+#include<iostream>
+#include<stdio.h>
+#include<stdlib.h>
+using namespace std;
 
 struct Array
 {
@@ -16,6 +18,7 @@ void Display(struct Array Val)
 
 	cout << endl;
 }
+
 
 void Append(struct Array &val, int element)
 {
@@ -71,6 +74,7 @@ void swap(struct Array &val, int index, int swapindex)
 	val.A[swapindex] = x;
 }
 
+
 void swappointer(int *index, int *swapindex)
 {
 	int temp = *index;
@@ -80,20 +84,16 @@ void swappointer(int *index, int *swapindex)
 
 int LinearSearch(struct Array &val, int key)
 {
-
 	for (int i = 0; i < val.Length; i++)
 	{
 		if (key == val.A[i])
-		{
 			return i;
-		}
 	}
 	return -1;
 }
 
 int ImprovisedLinearSearch(struct Array &val, int key)
 {
-
 	for (int i = 0; i < val.Length; i++)
 	{
 		if (key == val.A[i])
@@ -113,76 +113,14 @@ int ImprovisedLinearSearch(struct Array &val, int key)
 	return -1;
 }
 
-int BinarySearch(struct Array val, int key)
-{
-	int l = 0;
-	int h = val.Size - 1;
-	int mid = 0;
 
-	while (l <= h)
-	{
-		mid = (l + h) / 2;
-		if (key == val.A[mid])
-		{
-			return mid;
-		}
-		else if (key < val.A[mid])
-		{
-			h = mid - 1;
-		}
-		else
-		{
-			l = mid + 1;
-		}
-	}
-	return -1;
-}
+int main(){
 
-//for recursive binary search we need array as global
-// struct Array Arr = {{1, 2, 3, 4, 5}, 10, 5};
-int Recursive_BinarySearch(struct Array val, int key, int l, int h)
-{
-	int mid = (l + h) / 2;
+	 struct Array A1 = {{1, 2, 3, 4, 5}, 10, 5};
 
-	if (l <= h)
-	{
-		if (key < val.A[mid])
-		{
-			return Recursive_BinarySearch(val, key, l, mid - 1);
-		}
-		else
-		{
-			return Recursive_BinarySearch(val, key, mid + 1, h);
-		}
-	}
-	else if (key == val.A[mid])
-	{
-		return mid;
-	}
-	else
-	{
-		return -1;
-	}
-	return -1;
-}
-
-int main()
-{
-	struct Array A1 = {{1, 2, 3, 4, 5}, 10, 5};
-
-	Insert(A1, 3, 25);
-	
-	Append(A1, 12);
-
-	cout << Delete(&A1, 9) << endl;
-
-	// cout << LinearSearch(A1, 4) << endl;
-	// cout<<ImprovisedLinearSearch(A1,4)<<endl;
-	// Display(A1);
-
-	//recursive Binary Search
-	cout << BinarySearch(A1, 4) << endl;
-	cout << Recursive_BinarySearch(A1, 9, 0, 5) << endl;
+	cout << LinearSearch(A1, 4) << endl;
+	cout<<ImprovisedLinearSearch(A1,4)<<endl;
+	Display(A1);
 
 	return 0;
 }

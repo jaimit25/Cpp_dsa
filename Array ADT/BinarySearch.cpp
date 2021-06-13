@@ -1,5 +1,7 @@
-#include <iostream>
-using namespace std; //
+#include<iostream>
+#include<stdio.h>
+#include<stdio.h>
+using namespace std;
 
 struct Array
 {
@@ -63,56 +65,6 @@ int Delete(struct Array *val, int index)
 	return 0;
 }
 
-void swap(struct Array &val, int index, int swapindex)
-{
-
-	int x = val.A[index];
-	val.A[index] = val.A[swapindex];
-	val.A[swapindex] = x;
-}
-
-void swappointer(int *index, int *swapindex)
-{
-	int temp = *index;
-	*index = *swapindex;
-	*swapindex = temp;
-}
-
-int LinearSearch(struct Array &val, int key)
-{
-
-	for (int i = 0; i < val.Length; i++)
-	{
-		if (key == val.A[i])
-		{
-			return i;
-		}
-	}
-	return -1;
-}
-
-int ImprovisedLinearSearch(struct Array &val, int key)
-{
-
-	for (int i = 0; i < val.Length; i++)
-	{
-		if (key == val.A[i])
-		{
-			//using reference
-			// swap(val, i, i - 1);
-
-			//using pointer Transposition
-			// swappointer(&val.A[i],&val.A[i-1]);
-
-			//using move to Front/Head
-			swappointer(&val.A[i], &val.A[0]);
-
-			return i - 1;
-		}
-	}
-	return -1;
-}
-
 int BinarySearch(struct Array val, int key)
 {
 	int l = 0;
@@ -123,17 +75,11 @@ int BinarySearch(struct Array val, int key)
 	{
 		mid = (l + h) / 2;
 		if (key == val.A[mid])
-		{
 			return mid;
-		}
 		else if (key < val.A[mid])
-		{
 			h = mid - 1;
-		}
 		else
-		{
 			l = mid + 1;
-		}
 	}
 	return -1;
 }
@@ -143,44 +89,26 @@ int BinarySearch(struct Array val, int key)
 int Recursive_BinarySearch(struct Array val, int key, int l, int h)
 {
 	int mid = (l + h) / 2;
-
 	if (l <= h)
 	{
 		if (key < val.A[mid])
-		{
 			return Recursive_BinarySearch(val, key, l, mid - 1);
-		}
 		else
-		{
 			return Recursive_BinarySearch(val, key, mid + 1, h);
-		}
 	}
 	else if (key == val.A[mid])
-	{
 		return mid;
-	}
 	else
-	{
 		return -1;
-	}
+
 	return -1;
 }
 
-int main()
-{
+ 
+int main(){
+
 	struct Array A1 = {{1, 2, 3, 4, 5}, 10, 5};
 
-	Insert(A1, 3, 25);
-	
-	Append(A1, 12);
-
-	cout << Delete(&A1, 9) << endl;
-
-	// cout << LinearSearch(A1, 4) << endl;
-	// cout<<ImprovisedLinearSearch(A1,4)<<endl;
-	// Display(A1);
-
-	//recursive Binary Search
 	cout << BinarySearch(A1, 4) << endl;
 	cout << Recursive_BinarySearch(A1, 9, 0, 5) << endl;
 
