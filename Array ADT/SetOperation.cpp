@@ -92,6 +92,45 @@ Array *Intersection(Array *A, Array *B)
 
 
 
+Array *Difference(Array *A, Array *B)
+{
+
+	// Array C = {{0}, 10, A->length + B->length};
+	Array *C = (Array *)malloc(sizeof(Array));
+	C->length = A->length + B->length;
+
+	int i = 0;
+	int j = 0;
+	int k = 0;
+
+	while (i < A->length && j < B->length)
+	{
+		if (A->A[i] < B->A[j])
+		{
+			//only copy from element in A 
+			C->A[k++] = A->A[i++];
+		}
+		else if (B->A[j] < A->A[i])
+		{	
+			j++;
+		}
+		else
+		{	
+			//only copy when A is small 
+			i++;j++;
+		}
+	}
+	for (; i < A->length; i++)
+	{
+		C->A[k++] = A->A[i];
+	}
+	
+	C->length = k;
+	C->size = 10;
+
+	return C;
+}
+
 
 
 void Display(Array val)
@@ -119,6 +158,11 @@ int main()
 	D = Intersection(&A,&B);
 
 	Display(*D);
+
+	Array *E;
+	E = Difference(&A,&B);
+
+	Display(*E);
 
 	return 0;
 }
