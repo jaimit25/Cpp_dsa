@@ -27,7 +27,9 @@ void Swap(int *X,int *Y)
 void InsertingArray(Array &val, int element)
 {
 	int i = val.length - 1;
-
+	if(val.length = val.size){
+		return  ;
+	}
 	while (val.A[i] > element)
 	{
 		val.A[i + 1] = val.A[i];
