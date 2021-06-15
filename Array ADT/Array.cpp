@@ -1,4 +1,5 @@
 #include<iostream>
+
  using namespace std; 
 
 
@@ -33,7 +34,7 @@ void Displays(struct Arrays a){
 
  int main(){
 
-
+ 
 
 	 
 	 return 0;
