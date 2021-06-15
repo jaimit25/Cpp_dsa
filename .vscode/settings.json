@@ -50,4 +50,5 @@
     },
     // "vim.cursorStylePerMode.normal": "line",
     // "vim.cursorStylePerMode.insert": "line"
+    
 }
