@@ -5,7 +5,7 @@ int main(){
 
 int A[5] = {3,5,6,1,2};
 
-int H[6]= {0};
+int H[7]= {0};
 
 for(int i = 0;i < 5;i++){
 	H[A[i]]++;
