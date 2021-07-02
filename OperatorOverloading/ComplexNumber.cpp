@@ -59,6 +59,8 @@ int main()
     Complex c3 = c1 + c2; // An example call to "operator+"
     c3.print();
     Hi h3 = h1 + h2;
+	//we can also write in this way 
+	//     h4 = h1.operator+(h2);
     Hi h4 = h1.add(h2);
     h3.print();
     h4.print();
