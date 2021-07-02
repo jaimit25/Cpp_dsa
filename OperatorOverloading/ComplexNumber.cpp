@@ -31,6 +31,18 @@ class Hi{
 		this -> b = b;
 	}
 	 void print() { cout << a << " + " << b<< endl; }
+
+
+	//  in other way we can say that we have CAN have a method name as alphabets only
+	//but if want a operator instead of alphabetical name for function we can use operator keyword
+	//remember the operator to be used as function name should be a valid opeartor
+	 Hi add(Hi const &h){
+		Hi c;
+		c.a = a+ h.a;
+		c.b = b+ h.b;
+		return c;
+	 }
+	 //or
 	 Hi operator +(Hi const &h){
 		Hi c;
 		c.a = a+ h.a;
@@ -47,5 +59,7 @@ int main()
     Complex c3 = c1 + c2; // An example call to "operator+"
     c3.print();
     Hi h3 = h1 + h2;
+    Hi h4 = h1.add(h2);
     h3.print();
+    h4.print();
 }
