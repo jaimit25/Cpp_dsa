@@ -94,7 +94,7 @@ int main()
     //we can also write in this way 
     //     h4 = h1.operator+(h2);
     Hi h4 = h1.add(h2);
-//     Hi h5 = -h5;
+    //Hi h5 = -h5;
 	// or 
     Hi h5 = h1.operator-();
     h3.print();
