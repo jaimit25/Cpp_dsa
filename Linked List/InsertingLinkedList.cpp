@@ -16,7 +16,7 @@ void Display(struct Node *first)
 		cout << p->Data << " ";
 		p = p->next;
 	}
-	cout<<endl;
+	cout << endl;
 }
 
 struct Node *Search(struct Node *p, int key)
@@ -49,25 +49,24 @@ struct Node *RSearch(struct Node *p, int key)
 			return RSearch(p = p->next, key);
 		}
 	}
-
 }
- 
+
 // struct Node *
 void SearchImproved(struct Node *p, int key)
 {
 	struct Node *q = NULL;
 	while (p != NULL)
 	{
-		if ( key == p ->Data)
+		if (key == p->Data)
 		{
 			//we will assign p->next to q->next
-			q -> next  =  p -> next;
-			p -> next  =  first;
+			q->next = p->next;
+			p->next = first;
 			first = p;
 		}
 		q = p;
 		p = p->next;
-		//now if we search and element it will be found at 
+		//now if we search and element it will be found at
 		//the first position of linked list
 	}
 }
@@ -94,17 +93,57 @@ void Create(int A[], int n)
 		last = t;
 	}
 }
+int Length(struct Node *p)
+{
+	int length = 0;
+	while (p != NULL)
+	{
+		length++;
+		p = p->next;
+	}
+	return length;
+}
+
+void Insert(struct Node *p, int index, int x)
+{	
+	//ceating new pointer for inserting 
+	struct Node *t;
+	int i = 0 ;
+	//checking if inserting is valid or Not
+	if (index < 0 || index > Length(p))
+	{
+		return ;
+	}
+	else{
+
+		//initialing and inserting value into new Node
+		t = new Node;
+		t->Data = x;
+
+		if(index == 0){
+			//we insert as first Node
+			t->next = first;
+			first = t;
+		}
+		else{
+			for( i = 0 ; i  < (index-1) ; i++ )
+				 p = p->next;
+			
+			t ->next  = p ->next;
+			p ->next = t;
+		}
+	}
+}
 
 int main()
 {
-	//         0 1 2  3  4 5  6 7
-	int A[] = {3, 5, 7, 10, 25, 8, 32, 2};
-	Create(A, 8);
+	//         0  1  2  
+	int A[] = {3, 5, 7};
+	Create(A, 3);
 	Display(first);
-	cout<<Search(first,7)<<endl;
-	cout<<RSearch(first,7)<<endl;
-	Display(first);
-	// cout<<SearchImproved(first,7)<<endl;
+
+	//Inserting element into new Node
+	Insert(first, 2 ,21);
 	Display(first);
 	return 0;
 }
