@@ -105,44 +105,129 @@ int Length(struct Node *p)
 }
 
 void Insert(struct Node *p, int index, int x)
-{	
-	//ceating new pointer for inserting 
+{
+	//ceating new pointer for inserting
 	struct Node *t;
-	int i = 0 ;
+	int i = 0;
 	//checking if inserting is valid or Not
 	if (index < 0 || index > Length(p))
 	{
-		return ;
+		return;
 	}
-	else{
+	else
+	{
 
 		//initialing and inserting value into new Node
 		t = new Node;
 		t->Data = x;
-		if(index == 0){
+		if (index == 0)
+		{
 			//we insert as first Node
 			t->next = first;
 			first = t;
 		}
 
-		else{
-			for( i = 0 ; i  < (index-1) ; i++ )
-				 p = p->next;
-			t ->next  = p ->next;
-			p ->next = t;
+		else
+		{
+			for (i = 0; i < (index - 1); i++)
+				p = p->next;
+			t->next = p->next;
+			p->next = t;
 		}
 	}
+}
+void InsertSortedList(struct Node *p, int val)
+{
+	struct Node *q = NULL;
+	struct Node *t;
+
+	while (p != NULL && p->Data < val)
+	{
+		q = p;
+		p = p->next;
+	}
+	//initialized new Node
+	t = new Node;
+	t->Data = val;
+	
+	if(q == NULL){
+		cout<<"Cannot Insert At the beginning of Node"<<endl;
+	}
+	else{
+	t->next = q->next;
+	q->next = t;
+	}
+}
+void InsertSortedListLecture(struct Node *p, int val)
+{
+	struct Node *q = NULL;
+	struct Node *t;
+
+	//initialized new Node
+	t = new Node;
+	t->Data = val;
+	t->next = NULL;
+	if(first == NULL){
+		first = t;
+	}
+	else{
+		while(p != NULL && p->Data < val){
+			q = p;
+			p = p->next;
+		}
+		if(p == first){
+			//if there is only one element in linked list 
+			t->next = first;
+			first = t;
+		}else{
+			//if there are multiple elements in list
+			t ->next  = q -> next;
+			q -> next  = t; 
+		}
+	}
+}
+int Delete(struct Node *p , int index){
+	struct Node *q;
+	int x = -1 , i;
+	if(index == 1){
+		x = first->Data;
+		 p = first;
+		 first = first->next;
+		 delete p;
+	}
+	else{
+		p = first;
+		q = NULL;
+		for(i = 0 ; i < index -1 && p ; i++){
+			q= p;
+			p = p->next;
+		}
+		if(p != NULL){
+			q -> next  = p->next;
+			x = p->Data;
+			free(p);
+		}
+	}
+	return x;
 }
 
 int main()
 {
-	//         0  1  2  
-	int A[] = {3, 5, 7};
-	Create(A, 3);
-	Display(first);
+	//         0  1  2
+	// int A[] = {3, 5, 7};
+	// Create(A, 3);
+	// Display(first);
 
 	//Inserting element into new Node
-	Insert(first, 2 ,21);
+	Insert(first, 0, 12);
+	Insert(first, 1, 14);
+	Insert(first, 2, 16);
+	Insert(first, 3, 19);
+	InsertSortedList(first, 18);
+	InsertSortedList(first, 13);
+	InsertSortedListLecture(first, 4);
+	Display(first);
+	Delete(first,1);
 	Display(first);
 	return 0;
 }
