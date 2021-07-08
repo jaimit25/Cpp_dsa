@@ -10,7 +10,6 @@ public:
 
 class LinkedList
 {
-
 private:
 	Node *first;
 
@@ -28,10 +27,31 @@ public:
 	~LinkedList();
 };
 
+LinkedList::LinkedList(int A[], int n)
+{
+	 int i;
+	//creating first Node
+	Node *first_node = NULL, *last_node = NULL;
+	first_node = new Node;
+	first_node->data = A[0];
+	first_node->next = NULL;
+	first = first_node;
+	last_node = first_node;
+	for (i = 1; i < n; i++)
+	{
+		Node *t = new Node;
+		t->data = A[i];
+		t->next = NULL;
+		last_node->next = t;
+		last_node = t;
+	}
+}
+
 Node *LinkedList::getFirst()
 {
 	return first;
 }
+
 int LinkedList::Length(Node *p)
 {
 	p = first;
@@ -122,7 +142,7 @@ LinkedList::~LinkedList()
 		delete p;
 		p = first;
 	}
-	cout<<"Linked List Deleted"<<endl;
+	cout << "Linked List Deleted" << endl;
 }
 
 int main()
@@ -138,5 +158,12 @@ int main()
 	l.Delete(2);
 	l.Display();
 	cout << "Length of Linked List is : " << l.Length(l.getFirst()) << endl;
+	cout<<endl;
+	int A[] = {1,2,3,4,5};
+	LinkedList l2(A,5);
+	l2.Display();
+	cout << "Length of Linked List 2 is : " << l2.Length(l.getFirst()) << endl;
+	cout<<endl;
+	cout<<"Both The Linked List will be out of Scope now and Destructor will be Called. "<<endl;
 	return 0;
 }
