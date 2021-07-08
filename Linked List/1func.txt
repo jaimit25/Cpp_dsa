@@ -10,3 +10,4 @@ void InsertSortedListLecture(struct Node *p, int val);
 int Delete(struct Node *p , int index);
 int Length(struct Node *p);
 void ReverseLinkListElement(struct Node *p);
+int isLoop(struct Node *f);

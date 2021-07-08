@@ -149,13 +149,15 @@ void InsertSortedList(struct Node *p, int val)
 	//initialized new Node
 	t = new Node;
 	t->Data = val;
-	
-	if(q == NULL){
-		cout<<"Cannot Insert At the beginning of Node"<<endl;
+
+	if (q == NULL)
+	{
+		cout << "Cannot Insert At the beginning of Node" << endl;
 	}
-	else{
-	t->next = q->next;
-	q->next = t;
+	else
+	{
+		t->next = q->next;
+		q->next = t;
 	}
 }
 void InsertSortedListLecture(struct Node *p, int val)
@@ -167,43 +169,59 @@ void InsertSortedListLecture(struct Node *p, int val)
 	t = new Node;
 	t->Data = val;
 	t->next = NULL;
-	if(first == NULL){
+	if (first == NULL)
+	{
 		first = t;
 	}
-	else{
-		while(p != NULL && p->Data < val){
+	else
+	{
+		while (p != NULL && p->Data < val)
+		{
 			q = p;
 			p = p->next;
 		}
-		if(p == first){
-			//if there is only one element in linked list 
+		if (p == first)
+		{
+			//if there is only one element in linked list
 			t->next = first;
 			first = t;
-		}else{
+		}
+		else
+		{
 			//if there are multiple elements in list
-			t ->next  = q -> next;
-			q -> next  = t; 
+			t->next = q->next;
+			q->next = t;
 		}
 	}
 }
-int Delete(struct Node *p , int index){
+int Delete(struct Node *p, int index)
+{
 	struct Node *q;
-	int x = -1 , i;
-	if(index == 1){
+	int x = -1, i;
+
+	if (index < 1 || index > Length(p))
+		return -1;
+		
+	if (index == 1)
+	{
 		x = first->Data;
-		 p = first;
-		 first = first->next;
-		 delete p;
+		p = first;
+		first = first->next;
+		delete p;
 	}
-	else{
+	else
+	{
 		p = first;
 		q = NULL;
-		for(i = 0 ; i < index -1 && p ; i++){
-			q= p;
+		//2-1=1
+		for (i = 0; i < index - 1 && p; i++)
+		{
+			q = p;
 			p = p->next;
 		}
-		if(p != NULL){
-			q -> next  = p->next;
+		if (p != NULL)
+		{
+			q->next = p->next;
 			x = p->Data;
 			free(p);
 		}
@@ -227,7 +245,7 @@ int main()
 	InsertSortedList(first, 13);
 	InsertSortedListLecture(first, 4);
 	Display(first);
-	Delete(first,1);
+	Delete(first, 1);
 	Display(first);
 	return 0;
 }

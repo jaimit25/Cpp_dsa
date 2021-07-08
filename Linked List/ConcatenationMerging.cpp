@@ -331,6 +331,7 @@ void MergeLinkedList()
 
 		if (first->Data < second->Data)
 		{
+
 			last->next = first;
 			last = first;
 			first = first->next;
@@ -338,6 +339,7 @@ void MergeLinkedList()
 		}
 		else
 		{
+
 			last->next = second;
 			last = second;
 			second = second->next;
@@ -350,6 +352,7 @@ void MergeLinkedList()
 	}
 	else
 	{
+
 		last->next = second;
 	}
 }

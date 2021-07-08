@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 struct Node
 {
 	int data;
 	struct Node *next;
 } *first = NULL, *second = NULL, *third = NULL;
+
 void Display(struct Node *p)
 {
 	while (p != NULL)
@@ -13,10 +15,13 @@ void Display(struct Node *p)
 		p = p->next;
 	}
 }
+
 void create(int A[], int n)
 {
 	int i;
 	struct Node *t, *last;
+
+	//we will create first Node since we do not have it globally
 	first = (struct Node *)malloc(sizeof(struct Node));
 	first->data = A[0];
 	first->next = NULL;
@@ -31,11 +36,11 @@ void create(int A[], int n)
 		last = t;
 	}
 }
+
 int isLoop(struct Node *f)
 {
 	struct Node *p, *q;
 	p = q = f;
-
 	do
 	{
 		p = p->next;
@@ -48,8 +53,10 @@ int isLoop(struct Node *f)
 	else
 		return 0;
 }
+
 int main()
 {
+
 	struct Node *t1, *t2;
 
 	int A[] = {10, 20, 30, 40, 50};
@@ -62,4 +69,5 @@ int main()
 	printf("%d\n", isLoop(first));
 
 	return 0;
+	
 }
