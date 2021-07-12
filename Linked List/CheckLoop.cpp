@@ -43,6 +43,8 @@ int isLoop(struct Node *f)
 	p = q = f;
 	do
 	{
+		//this will loop will stop when p or q is NULL for Linear LinkedList
+		//it will stop when p = q for Loop In linked list
 		p = p->next;
 		q = q->next;
 		q = q ? q->next : q;
