@@ -63,6 +63,7 @@ void Display()
 
 int main()
 {
+
 	Enqueue(12);
 	Enqueue(19);
 	Enqueue(15);
@@ -70,5 +71,6 @@ int main()
 	Display();
 	Dequeue();
 	Display();
+
 	return 0;
 }
