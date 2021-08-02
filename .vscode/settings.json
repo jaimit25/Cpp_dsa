@@ -48,6 +48,7 @@
         "streambuf": "cpp",
         "typeinfo": "cpp"
     },
+    "C_Cpp.errorSquiggles": "Enabled",
     // "vim.cursorStylePerMode.normal": "line",
     // "vim.cursorStylePerMode.insert": "line"
     

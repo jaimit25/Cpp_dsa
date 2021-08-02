@@ -9,6 +9,9 @@
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
+                ,"&&",
+				"./${fileBasenameNoExtension}",
+				"<input.txt>output.txt",
             ],
             "options": {
                 "cwd": "${fileDirname}"
