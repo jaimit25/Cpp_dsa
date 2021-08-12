@@ -217,8 +217,10 @@ struct Node *Delete(struct Node *p, int key)
 			p->data = q->data;
 			p->rchild = Delete(p->rchild, q->data);
 		}
+
 	}
 	return p;
+
 }
 
 int main()
@@ -241,8 +243,8 @@ int main()
 
 
 	//Delete Function
-	cout<<"Deleting Element : "<<Delete(root,20)<<endl;
-	cout<<"Deleting Element : "<<Delete(root,5)<<endl;
+	cout<<"Deleting Element : "<<Delete(root,10)->data<<endl;
+	cout<<"Deleting Element : "<<Delete(root,5)->data<<endl;
 
 	Inorder(root);
 	cout << endl;
