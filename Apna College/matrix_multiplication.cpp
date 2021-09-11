@@ -16,17 +16,18 @@ int main()
 	    {8, 4, 3, 6},
 	    {1, 7, 9, 5},
 	};
+
 	int B[4][3] = {
 	    {1, 2, 3},
 	    {4, 5, 6},
 	    {7, 8, 9},
 	    {4, 5, 6},
 	};
+
 	int i, j;
 	int M[4][3];
 
 	cout << "Printing Array 1 : " << endl;
-
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 4; j++)
@@ -46,21 +47,26 @@ int main()
 		cout << endl;
 	}
 
-
 	cout<<"Answer Matrix is : "<<endl;
 	j = 0;
+	int sum = 0;
+	int k;
 	for(i = 0 ; i < 3 ; i++){
-		while(j < 4){
-
-			M[j][i] = A[i][j]*B[j][i];
-
+		j = 0;
+		while(j < 3){
+			k = sum = 0;
+			while(k < 4){
+				sum = sum + (A[i][k]*B[k][j]);
+				k++;	
+			}
+			M[i][j] = sum;
 			j++;
 		}
-		j=0;
+
 	}
 	
 	cout << "Printing Answer Array : " << endl;
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
 		{
@@ -68,7 +74,6 @@ int main()
 		}
 		cout << endl;
 	}
-
 
 	return 0;
 }
