@@ -7,7 +7,7 @@ private:
 public:
     Complex(int r = 0, int i =0)  {real = r;   imag = i;}
       
-    // This is automatically called when '+' is used with
+    // This is automatically called when '+' is used 
     // between two Complex objects
     Complex operator + (Complex const &obj) {
          Complex res;

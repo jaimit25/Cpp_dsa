@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+using namespace std;
 
 struct Node
 {
@@ -45,9 +46,10 @@ int isLoop(struct Node *f)
 	{
 		//this will loop will stop when p or q is NULL for Linear LinkedList
 		//it will stop when p = q for Loop In linked list
-		p = p->next;
-		q = q->next;
+		p = p->next; //slow pointer 
+		q = q->next; //faster pointer
 		q = q ? q->next : q;
+		//other case for loop to stop is p==q  
 	} while (p && q && p != q);
 
 	if (p == q)
